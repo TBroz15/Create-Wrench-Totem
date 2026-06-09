@@ -4,8 +4,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 
-public class PayloadHandler {
-    public static void handleClient(final CustomTotemAniamtionPayload data, final IPayloadContext context) {
+public class CustomTotemAnimationPayloadHandler {
+    public static void handleClient(final CustomTotemAnimationPayload data, final IPayloadContext context) {
         context.enqueueWork(()->Minecraft.getInstance().gameRenderer.displayItemActivation(data.stack()))
         .exceptionally(e -> {
             context.disconnect(Component.literal("Error when popping a Wrench Totem: " + e.getMessage()));
@@ -13,7 +13,7 @@ public class PayloadHandler {
         });
     }
 
-    public static void handleServer(final CustomTotemAniamtionPayload data, final IPayloadContext context) {
+    public static void handleServer(final CustomTotemAnimationPayload data, final IPayloadContext context) {
         // do absolutely nothing i guess
     }
 }

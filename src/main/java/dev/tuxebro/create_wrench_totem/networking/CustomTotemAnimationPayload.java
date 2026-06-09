@@ -11,14 +11,14 @@ import net.neoforged.neoforge.network.handling.DirectionalPayloadHandler;
 import net.neoforged.neoforge.network.registration.HandlerThread;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 
-public record CustomTotemAniamtionPayload(ItemStack stack) implements CustomPacketPayload {
-    public static final CustomPacketPayload.Type<CustomTotemAniamtionPayload> TYPE =
+public record CustomTotemAnimationPayload(ItemStack stack) implements CustomPacketPayload {
+    public static final CustomPacketPayload.Type<CustomTotemAnimationPayload> TYPE =
             new CustomPacketPayload.Type<>(ResourceLocation.fromNamespaceAndPath(CreateWrenchTotem.MOD_ID, "custom_totem_aniamtion"));
 
-    public static final StreamCodec<RegistryFriendlyByteBuf, CustomTotemAniamtionPayload> STREAM_CODEC = StreamCodec.composite(
+    public static final StreamCodec<RegistryFriendlyByteBuf, CustomTotemAnimationPayload> STREAM_CODEC = StreamCodec.composite(
             ItemStack.STREAM_CODEC,
-            CustomTotemAniamtionPayload::stack,
-            CustomTotemAniamtionPayload::new
+            CustomTotemAnimationPayload::stack,
+            CustomTotemAnimationPayload::new
     );
 
     @Override
@@ -31,11 +31,11 @@ public record CustomTotemAniamtionPayload(ItemStack stack) implements CustomPack
                 .executesOn(HandlerThread.NETWORK);
 
         registrar.playBidirectional(
-                CustomTotemAniamtionPayload.TYPE,
-                CustomTotemAniamtionPayload.STREAM_CODEC,
+                CustomTotemAnimationPayload.TYPE,
+                CustomTotemAnimationPayload.STREAM_CODEC,
                 new DirectionalPayloadHandler<>(
-                        PayloadHandler::handleClient,
-                        PayloadHandler::handleServer
+                        CustomTotemAnimationPayloadHandler::handleClient,
+                        CustomTotemAnimationPayloadHandler::handleServer
                 )
         );
     }

@@ -2,7 +2,7 @@ package dev.tuxebro.create_wrench_totem.events;
 
 import com.simibubi.create.AllItems;
 import dev.tuxebro.create_wrench_totem.CreateWrenchTotem;
-import dev.tuxebro.create_wrench_totem.networking.CustomTotemAniamtionPayload;
+import dev.tuxebro.create_wrench_totem.networking.CustomTotemAnimationPayload;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
@@ -57,7 +57,7 @@ public class CustomTotemEvent {
                 SoundEvents.TOTEM_USE, SoundSource.NEUTRAL, 1.0F, 1.0F);
 
         if (!(entity instanceof ServerPlayer player)) return;
-        PacketDistributor.sendToPlayer(player, new CustomTotemAniamtionPayload(new ItemStack(AllItems.WRENCH.asItem())));
+        PacketDistributor.sendToPlayer(player, new CustomTotemAnimationPayload(new ItemStack(AllItems.WRENCH.asItem())));
     }
 
     private static @Nullable ItemStack getTotem(LivingEntity entity) {
