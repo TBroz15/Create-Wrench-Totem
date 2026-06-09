@@ -1,0 +1,24 @@
+{
+  "type": "create:deploying",
+  "ingredients": [
+    {
+      "item": "create:wrench"
+    },
+    {
+      "item": "minecraft:totem_of_undying"
+    }
+  ],
+  "results": [
+    {
+      "id": "create:wrench",
+      "count": 1,
+      "components": {
+        "minecraft:custom_name": "{\"translate\":\"item.create_wrench_totem.wrench_totem\"}",
+        "minecraft:enchantment_glint_override": true,
+        "minecraft:custom_data": {
+          "IsTotem": true
+        }
+      }
+    }
+  ]
+}
