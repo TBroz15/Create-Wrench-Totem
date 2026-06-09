@@ -1,0 +1,5 @@
+{
+  "itemGroup.create_wrench_totem": "Example Mod Tab",
+  "block.create_wrench_totem.example_block": "Example Block",
+  "item.create_wrench_totem.example_item": "Example Item"
+}
